@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Load Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .center {
+            text-align: center;
+        }
+        #countdown {
+            font-size: 2em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <p>Loading...</p>
+        <p id="countdown">300</p>
+    </div>
+
+    <script>
+        let timeLeft = 300;
+        const countdownElement = document.getElementById('countdown');
+
+        function updateCountdown() {
+            if (timeLeft > 0) {
+                timeLeft--;
+                countdownElement.textContent = timeLeft;
+            } else {
+                window.location.href = "/video";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>

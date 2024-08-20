@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Page</title>
+    <style>
+        video {
+            width: 50%; /* 가로 크기를 50%로 설정 */
+            height: 50%; /* 세로 크기를 50%로 설정 */
+            display: block;
+            margin: 0 auto; /* 가운데 정렬 */
+        }
+    </style>
+</head>
+<body>
+    <video id="mainVideo" autoplay>
+        <source id="videoSource" src="/static/output/final_video_0.mp4" type="video/mp4">
+    </video>
+    <script>
+        const video = document.getElementById('mainVideo');
+        let videoIndex = 0;
+        video.onended = function() {
+            videoIndex++;
+            const nextVideoSrc = `/static/output/final_video_${videoIndex}.mp4`; // .ts를 .mp4로 변경
+            fetch(nextVideoSrc)
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('videoSource').src = nextVideoSrc;
+                        video.load();
+                        video.play();
+                    } else {
+                        // Handle the end of the video list if necessary
+                        console.log("No more videos to play.");
+                    }
+                });
+        };
+    </script>
+</body>
+</html>
