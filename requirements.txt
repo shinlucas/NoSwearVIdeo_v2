@@ -1,0 +1,16 @@
+wheel
+openai-whisper==20230314
+pydub==0.25.1
+transformers==4.27.4
+moviepy==1.0.3
+spleeter==2.4.0
+soundfile==0.12.1
+Flask==2.0.2
+streamlink==5.4.0 
+werkzeug==2.0.3
+numpy==1.22.0
+yt-dlp
+waitress==2.1.2
+torchvision
+git+https://github.com/myshell-ai/MeloTTS.git
+git+https://github.com/myshell-ai/OpenVoice.git

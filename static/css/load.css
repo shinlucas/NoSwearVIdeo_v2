@@ -1,0 +1,27 @@
+body {
+    background-image: url("../image/rocket.png");
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#countdownContainer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+#countdown {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}

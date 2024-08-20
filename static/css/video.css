@@ -1,0 +1,26 @@
+body {
+    background-image: url("../image/rocket.png");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0; /* Background color for the entire page */
+ }
+ #player {
+    max-width: 100%;
+    margin-top: 20px; /* Margin from the top */
+ }
+ #textContainer {
+    background-color: #808080; /* Gray background for the text container */
+    padding: 20px;
+    margin-top: 20px; /* Adjust as needed for spacing between video and text */
+    height: 11vh; /* Set the height of the text container to 1/3 of the viewport height */
+    width: 70%
+ }
+ #textFrame {
+    width: 100%; /* Make text frame width same as video width */
+    height: 100%; /* Set the height of the text frame to 100% of the text container height */
+    color: #ffffff; /* Text color */
+ }
