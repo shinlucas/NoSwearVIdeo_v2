@@ -31,23 +31,24 @@ def initialize_models():
             print(f"Downloaded file to {dest_path}")
         else:
             print(f"File already exists at {dest_path}")
+            
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-        wisper_model = whisper.load_model("medium")
+        wisper_model = whisper.load_model("medium").to(device)
         print(f"Whisper model loaded in {time.time() - start_time} seconds")
 
         replace_model_name = "kykim/bert-kor-base"
         replace_tokenizer = AutoTokenizer.from_pretrained(replace_model_name)
-        replace_model = AutoModelForMaskedLM.from_pretrained(replace_model_name)
+        replace_model = AutoModelForMaskedLM.from_pretrained(replace_model_name).to(device)
         print(f"Replace model loaded in {time.time() - start_time} seconds")
 
         model_name = "kykim/bert-kor-base"
         choice_tokenizer = BertTokenizer.from_pretrained(model_name)
-        choice_model = BertForMaskedLM.from_pretrained(model_name)
+        choice_model = BertForMaskedLM.from_pretrained(model_name).to(device)
         print(f"Choice model loaded in {time.time() - start_time} seconds")
 
 
         ckpt_converter = './checkpoints_v2/converter'
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         tone_color_converter = ToneColorConverter(f'{ckpt_converter}/config.json', device=device)
         tone_color_converter.load_ckpt(f'{ckpt_converter}/checkpoint.pth')
         tts_model = TTS(language="KR", device=device)
@@ -74,9 +75,9 @@ video_path = "./video"
 temp_path = "./temp"
 audio_path = "./audio"
 output_path = "./static/output"
-target_dict = ['시발새끼', "씨발새끼", "씨발", "존나", "병신새끼", "새끼", '씨발 새끼', '지진',
-               '시발 새끼', '개새끼', '개 새끼','좆같은데', '족 같은데', '족같은데', '썅년', '지랄', '새x', '씨x',
-               '좆까', '조까', '족가', '미친', '미친새끼', '미친 새끼', '등신', '병신', '병신 새끼']
+target_dict = ['시발새끼', "씨발새끼", "씨발", "시발", "존나", "병신새끼", "새끼", '씨발 새끼', '투자', '리스크', '열기', '폭염', '태풍', '열대야', '기업', '실적', '투자', '종목', '화재',
+               '시발 새끼', '개새끼', '개 새끼','좆같은데', '족 같은데', '족같은데', '썅년', '지랄',
+               '좆까', '조까', '족가', '미친년', '미친새끼', '미친 새끼', '등신', '병신', '병신 새끼']
 
 
 def get_target_dict_internal():
