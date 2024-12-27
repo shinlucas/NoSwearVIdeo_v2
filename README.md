@@ -1,4 +1,5 @@
 # NoSwearVIdeo_v2
 
-![KSC2024_신현서.pdf](https://github.com/user-attachments/files/18261795/KSC2024_.pdf)
+![KSC2024_shince](https://github.com/user-attachments/assets/1dd99277-c6d0-4800-bc6f-230809059b6d)
+
 
